@@ -1,3 +1,5 @@
+#ifndef SBOXES_C
+#define SBOXES_C
 /**
  *  Tiger Hash S-Boxes.
  *  Indexes for each of the 4 S-Boxes:
@@ -526,3 +528,5 @@ word64 table[4*256] = {
 #define t2 (table+256)
 #define t3 (table+256*2)
 #define t4 (table+256*3)
+
+#endif

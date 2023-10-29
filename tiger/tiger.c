@@ -1,3 +1,6 @@
+#ifndef TIGER_C
+#define TIGER_C
+
 /**
  *  This function applies padding to an 'unsigned char' array
  *  and returns it, also overriding the 'new_length' variable with the
@@ -262,3 +265,4 @@ byte* tiger(byte* plain, word64 plain_length, word64* length)
   return hash;
 }
 
+#endif

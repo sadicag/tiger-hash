@@ -1,4 +1,8 @@
-#include "main.h"
+#include <ncurses.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "tiger/tiger.h"
 
 /**
  *  Hashes a complete file and returns back the hash.
@@ -25,9 +29,9 @@ int hash_file(char* filename)
 
 int main(void)
 {
-  char filename_0[256] = "0.in";
-  char filename_1[256] = "1.in";
-  char filename_2[256] = "2.in";
+  char filename_0[256] = "testfiles/0.in";
+  char filename_1[256] = "testfiles/1.in";
+  char filename_2[256] = "testfiles/2.in";
 
   hash_file(filename_0);
   hash_file(filename_1);
