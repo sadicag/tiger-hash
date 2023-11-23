@@ -15,14 +15,25 @@ byte* append_to_chars(byte* array, byte ch, word64* length)
 }
 
 /**
- *  Print an array of bytes.
+ *  Print an array of bytes in hexadecimal value.
+ */
+void printxs(byte* array, word64 length)
+{
+  for(word64 i = 0; i < length; i++)
+  {
+    printf("%02X", array[i]);
+  }
+  printf("\n");
+}
+
+/**
+ *  Print an array of bytes in binary value.
  */
 void printbs(byte* array, word64 length)
 {
   for(word64 i = 0; i < length; i++)
   {
-    //printf("%c", array[i]);
-    printf("%02X ", array[i]);
+    printf("%c", array[i]);
   }
   printf("\n");
 }
@@ -66,6 +77,38 @@ byte* get_eof_input(word64* length)
 }
 
 /**
+ *  Write an array of bytes into a file.
+ *    is_hex : Writes in hex mode if it is 1
+ */
+void write_to_file(byte* filename, byte* array, word64 array_length, int is_hex)
+{
+  FILE* file;
+  file = fopen(filename, "w");
+
+  // Check if the file was successfully created
+  if (file == NULL)
+  {
+    fprintf(stderr, "ERROR: The file '%s' could not be created.\n", filename);
+    return;
+  }
+  
+  // Fill in the file
+  for(word64 i = 0; i < array_length; i++)
+  {
+    if (is_hex)
+    {
+      fprintf(file, "%02X", array[i]);
+    } else {
+      fprintf(file, "%c", array[i]);
+    }
+  }
+
+  // Close the file
+  fclose(file);
+  return;
+}
+
+/**
  *  Read the contents of a file and put them into an
  *  array of bytes.
  */
@@ -77,7 +120,7 @@ byte* read_file_bytes(char* filename, word64* length)
 
   if (file == NULL)
   {
-    fprintf(stderr, "File does not exist\n");
+    fprintf(stderr, "ERROR: The file '%s' does not exist.\n", filename);
     return NULL;
   }
 
@@ -183,5 +226,7 @@ void divide_64_bytes(
   *x6_ = x6;
   *x7_ = x7;
 }
+
+
 
 #endif

@@ -2,6 +2,14 @@
 
 This is a basic Tiger-Hash algorithm as in the paper 'Tiger: A Fast New Hash Function' written by Ross Anderson and Eli Biham.
 
-A Basic NCurses interface will be made in order to make it user-friendly.
+Usage:
+        tiger-hash [options] <file>
 
-The project is dependant on dynamically linked 'ncurses' library, and can be compiled into the 'bin' directory using the MakeFile.
+Hash a file according to Tiger algorithm created by Ross Anderson and Eli Biham.
+
+Options:
+        -h Display this help
+        -x Output in hexadecimal values
+        -b Output in binary values
+        -o <path> Save the output in file
+
