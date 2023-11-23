@@ -101,7 +101,7 @@ int main(int argc, char** argv)
           state->is_hex = 0;
         break;
         default:
-          fprintf(stderr, "ERROR: Unknown argument %s.\n", argv[i]);
+          fprintf(stderr, "ERROR: Unknown argument %s.\nTry 'tiger-hash -h' for help.\n", argv[i]);
           return 1;
         break;
       }
